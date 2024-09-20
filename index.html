@@ -1,208 +1,259 @@
 <!DOCTYPE html>
 <html lang="de">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width">
-        <title>Stud.IP Opencast Plugin</title>
-        <link rel="stylesheet" href="./assets/css/opencast.css">
-    </head>
-    <body>
-        <script>
-            var height;
 
-            window.onload = () => sendPostMessage();
-            window.onresize = () => sendPostMessage();
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Stud.IP Opencast Plugin</title>
+    <link rel="stylesheet" href="./assets/css/opencast.css">
+</head>
 
-            function getOuterHeight(el) {
-                var height = Math.max(el.scrollHeight, el.offsetHeight, el.clientHeight);
-                var style = getComputedStyle(el);
+<body>
+    <script>
+        var height;
 
-                height += parseInt(style.marginTop) + parseInt(style.marginBottom);
-                return height;
+        window.onload = () => sendPostMessage();
+        window.onresize = () => sendPostMessage();
+
+        function getOuterHeight(el) {
+            var height = Math.max(el.scrollHeight, el.offsetHeight, el.clientHeight);
+            var style = getComputedStyle(el);
+
+            height += parseInt(style.marginTop) + parseInt(style.marginBottom);
+            return height;
+        }
+
+        function sendPostMessage() {
+            var outerHeight = getOuterHeight(document.body)
+            if (height !== outerHeight) {
+                height = outerHeight;
+                window.parent.postMessage({
+                    name: "studip-plugin-project-page/resize",
+                    height: outerHeight,
+                }, '*');
+                console.debug("sent resize message");
             }
+        }
+    </script>
+    <header class="top-header">
+        <div class="overlay">
+        </div>
+        <div class="container">
+            <div class="text-row">
+                <h1>
+                    Stud.IP Opencast Plugin
+                </h1>
+                <h2>
+                    Vorlesungsaufzeichnungen und Videos erstellen, verteilen und erleben mit dem Opencast Plugin
+                </h2>
+            </div>
+            <div class="icon-row">
+                <img src="assets/images/opencast.svg" />
+            </div>
+        </div>
+    </header>
+    <section>
+        <div class="container">
+            <div>
+                <h4>OCP: Der Medienmanager in Stud.IP</h4>
+                <p>Als Inhaltselement kann das Opencast Plugin in jeder Stud.IP-Veranstaltung optional zugeschaltet
+                    werden. Durch die enge Integration mit Opencast hat man die Mächtigkeit des Open Source Video
+                    Management System direkt komfortabel in Stud.IP. Ein echter Mehrwert für Lehrende und Studierende.
+                </p>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <img class="keyvisual-image" src="assets/images/studip-keyvisual.svg" />
+            <div class="keyvisual-text">
+                <h4>Ich möchte mich beim Opencast Plugin einbringen</h4>
+                <p>Nehmen Sie an dieser Veranstaltung teil und helfen Sie bei der Gestaltung und Entwicklung des
+                    Opencast Plugins.</p>
+                <a href="https://develop.studip.de/studip/dispatch.php/course/details/index/ae07e012f3969429d5e4394ae71469ee"
+                    target="_parent">
+                    <button>Jetzt teilnehmen</button>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container box-container">
+            <div class="box">
+                <img class="icon" src="assets/images/list.svg" />
+                <h3>Medien verwalten</h3>
+                <p>Im Arbeitsplatz können alle zugreifbaren Videos eingesehen, bearbeitet und in Wiedergabelisten
+                    einsortiert werden. Zu viele Videos? Tags und die mächtige Multifunktionale Suche helfen die
+                    Übersichtlichkeit zu waren.</p>
+            </div>
+            <div class="box">
+                <img class="icon" src="assets/images/content.svg" />
+                <h3>Medien erstellen</h3>
+                <p>Fertige Medien hochladen ist genauso wenig ein problem wie neu zu erstellen - dank der Anbindung an
+                    Opencast Studio. Sie wollen, dass auch Studierende diese Tools nutzen können? Kein Problem, mit
+                    wenigen Klicks erlauben sie Studierenden genau das innerhalb einer Veranstaltung!</p>
+            </div>
+            <div class="box">
+                <img class="icon" src="assets/images/video2.svg" />
+                <h3>Automatisierte Aufzeichnungen</h3>
+                <p>Sie haben Vorlesungsräume mit Aufzeichnungstechnik? Koppeln sie das ganze mit Stud.IP und geben so
+                    Lehrenden die Möglichkeit direkt aus der Veranstaltung heraus Aufzeichnungen planen zu können. Diese
+                    landen (je nach Einstellung) ohne weiteres zutun im korrekten Kurs.</p>
+            </div>
+            <div class="box">
+                <img class="icon" src="assets/images/courseware.svg" />
+                <h3>Integration in Courseware</h3>
+                <p>Wir haben auch das große Ganze im Blick! Erweitern sie ihre Lernmodule in Courseware mit Inhalten aus
+                    Opencast - komfortabel und nutzendenfreundlich!</p>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="keyvisual-text-left">
+                <h4>Wir entwickeln die Zukunft von Opencast Plugins</h4>
+                <p>Erfahrungswerte bei Konzeption, Entwicklung, Schulung und Nutzung von Opencast nicht nur in Stud.IP
+                    sondern auch in Moodle und ILIAS sind seit über 15 Jahren Experten auf diesem Gebiet. Durch unsere
+                    Expertise und den andauernden Kontakt zu Nutzenden ist es uns möglich Lösungen zu entwickeln welche
+                    die Lehre von Morgen ermöglichen.</p>
+            </div>
+            <img class="keyvisual-image" src="assets/images/studip-keyvisual.svg" />
+        </div>
+    </section>
+    <section class="services">
+        <div class="container">
+            <div class="statement">
+                <h3>Leistungen die wir anbieten</h3>
+                <p>
+                    Hier finden Sie eine kleine Auswahl unserer Leistungen. Bei individuellen Ideen und Wünschen
+                    sprechen Sie uns gerne an.
+                </p>
+            </div>
+        </div>
+        <div class="container service-container">
+            <div class="services">
+                <div class="service">
+                    <img class="service-icon" src="assets/images/code.svg">
+                    <div class="service-text">
+                        <h4>Entwicklung</h4>
+                        <p>
+                            Erweiterung und Neuentwicklung von Funktionen im Stud.IP Kern sowie Erstellung und Pflege
+                            von Stud.IP-Plugins.
+                        </p>
+                    </div>
+                </div>
+                <div class="service">
+                    <img class="service-icon" src="assets/images/group3.svg">
+                    <div class="service-text">
+                        <h4>Workshops</h4>
+                        <p>
+                            Raum schaffen um gemeinsam neue Ideen zu entwickeln und aus Ideen Konzepte zu entwerfen.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="services">
+                <div class="service">
+                    <img class="service-icon" src="assets/images/archive3.svg">
+                    <div class="service-text">
+                        <h4>Opencast-Hosting</h4>
+                        <p>
+                            Professionelles Hosting von Opencast beim elan e.V. oder in Ihrem Rechenzentrum.
+                        </p>
+                    </div>
+                </div>
+                <div class="service">
+                    <img class="service-icon" src="assets/images/service.svg">
+                    <div class="service-text">
+                        <h4>Integration in Ihr LMS</h4>
+                        <p>
+                            Anbindung an Stud.IP, ILIAS oder Moodle.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            function sendPostMessage() {
-                var outerHeight = getOuterHeight(document.body)
-                if (height !== outerHeight)  {
-                    height = outerHeight;
-                    window.parent.postMessage({
-                        name: "studip-plugin-project-page/resize",
-                        height: outerHeight,
-                    }, '*');
-                    console.debug("sent resize message");
-                }
-            }
-        </script>
-        <header class="top-header">
-            <div class="overlay">
+    <section class="services">
+        <div class="container">
+            <div class="statement">
+                <h3>LMS Integrationen</h3>
+                <p>
+                    Hier finden Sie eine Liste von LMS Plugins für Opencast an denen der elan e.V. maßgeblich
+                    mitentwickelt.
+                </p>
             </div>
-            <div class="container">
-                <div class="text-row">
-                    <h1>
-                        Stud.IP Opencast Plugin
-                    </h1>
-                    <h2>
-                        Vorlesungsaufzeichnungen und Videos erstellen, verteilen und erleben mit dem Opencast Plugin
-                    </h2>
+        </div>
+        <div class="container service-container">
+            <div class="services">
+                <div class="service">
+                    <img class="service-icon" src="assets/images/plugin2.svg">
+                    <div class="service-text">
+                        <h4>Stud.IP Opencast Plugin</h4>
+                        <p>
+                            Seit über 15 Jahren vom elan e.V., der Universität Osnabrück und vielen weiteren
+                            Institutionen geförderte und genutzte Opencast Integration für Stud.IP
+                        </p>
+                        <a target="_blank"
+                                href="https://github.com/elan-ev/studip-opencast-plugin"><button class="small">Mehr erfahren auf github</button></a>
+                    </div>
                 </div>
-                <div class="icon-row">
-                    <img src="assets/images/opencast.svg" />
+                <div class="service">
+                    <img class="service-icon" src="assets/images/plugin2.svg">
+                    <div class="service-text">
+                        <h4>Moodle Opencast Plugin</h4>
+                        <p>
+                            Moodle hat eine ganze Batterie von Opencast Integrationen:
+                        </p>
+                        <a target="_blank"
+                                href="https://github.com/Opencast-Moodle"><button class="small">Mehr erfahren auf github</button></a>
+                    </div>
                 </div>
             </div>
-        </header>
-        <section>
-            <div class="container">
-                <div>
-                    <h4>OCP: Der Medienmanager in Stud.IP</h4>
-                    <p>Als Inhaltselement kann das Opencast Plugin in jeder Stud.IP-Veranstaltung optional zugeschaltet werden. Durch die enge Integration mit Opencast hat man die Mächtigkeit des Open Source Video Management System direkt komfortabel in Stud.IP. Ein echter Mehrwert für Lehrende und Studierende.</p>
+            <div class="services">
+                <div class="service">
+                    <img class="service-icon" src="assets/images/plugin2.svg">
+                    <div class="service-text">
+                        <h4>ILIAS Opencast Plugin</h4>
+                        <p>
+                            Das Opencast Plugin für ILIAS wird gerade vom elan e.V. und weiteren runderneuert:
+                        </p>
+                        <a target="_blank"
+                                href="https://github.com/opencast-ilias"><button class="small">Mehr erfahren auf github</button></a>
+                    </div>
+                </div>
+                <div class="service">
+                    <img class="service-icon" src="assets/images/admin.svg">
+                    <div class="service-text">
+                        <h4>Opencast PHP Library</h4>
+                        <p>
+                            Alle drei oben genannten Plugins nutzen diese vom elan e.V. entwickelte Bibliothek zur
+                            Kommunikation mit Opencast.
+                        </p>
+                        <a target="_blank"
+                                href="https://github.com/elan-ev/opencast-php-library"><button class="small">Mehr erfahren auf github</button></a>
+                    </div>
                 </div>
             </div>
-        </section>
-        <section>
-            <div class="container">
-                <img class="keyvisual-image" src="assets/images/studip-keyvisual.svg" />
-                <div class="keyvisual-text">
-                    <h4>Ich möchte mich beim Opencast Plugin einbringen</h4>
-                    <p>Nehmen Sie an dieser Veranstaltung teil und helfen Sie bei der Gestaltung und Entwicklung des Opencast Plugins.</p>
-                    <a href="https://develop.studip.de/studip/dispatch.php/course/details/index/ae07e012f3969429d5e4394ae71469ee" target="_parent">
-                        <button>Jetzt teilnehmen</button>
+        </div>
+        <div class="container service-container">
+            <div class="services">
+                <div class="logo">
+                    <a href="https://elan-ev.de/" target="_blank">
+                        <img src="assets/images/elan_ev_logo_black.svg" height="30px" />
                     </a>
                 </div>
             </div>
-        </section>
-        <section>
-            <div class="container box-container">
-                <div class="box">
-                    <img class="icon" src="assets/images/list.svg" />
-                    <h3>Medien verwalten</h3>
-                    <p>Im Arbeitsplatz können alle zugreifbaren Videos eingesehen, bearbeitet und in Wiedergabelisten einsortiert werden. Zu viele Videos? Tags und die mächtige Multifunktionale Suche helfen die Übersichtlichkeit zu waren.</p>
-                </div>
-                <div class="box">
-                    <img class="icon" src="assets/images/content.svg" />
-                    <h3>Medien erstellen</h3>
-                    <p>Fertige Medien hochladen ist genauso wenig ein problem wie neu zu erstellen - dank der Anbindung an Opencast Studio. Sie wollen, dass auch Studierende diese Tools nutzen können? Kein Problem, mit wenigen Klicks erlauben sie Studierenden genau das innerhalb einer Veranstaltung!</p>
-                </div>
-                <div class="box">
-                    <img class="icon" src="assets/images/video2.svg" />
-                    <h3>Automatisierte Aufzeichnungen</h3>
-                    <p>Sie haben Vorlesungsräume mit Aufzeichnungstechnik? Koppeln sie das ganze mit Stud.IP und geben so Lehrenden die Möglichkeit direkt aus der Veranstaltung heraus Aufzeichnungen planen zu können. Diese landen (je nach Einstellung) ohne weiteres zutun im korrekten Kurs.</p>
-                </div>
-                <div class="box">
-                    <img class="icon" src="assets/images/courseware.svg" />
-                    <h3>Integration in Courseware</h3>
-                    <p>Wir haben auch das große Ganze im Blick! Erweitern sie ihre Lernmodule in Courseware mit Inhalten aus Opencast - komfortabel und nutzendenfreundlich!</p>
+            <div class="services">
+                <div class="call-to-action">
+                    <a href="https://elan-ev.de/kontakt/" target="_blank">
+                        <button>Angebot beim elan anfragen</button>
+                    </a>
                 </div>
             </div>
-        </section>
-        <section>
-            <div class="container">
-                <div class="keyvisual-text-left">
-                    <h4>Wir entwickeln die Zukunft von Opencast Plugins</h4>
-                    <p>Erfahrungswerte bei Konzeption, Entwicklung, Schulung und Nutzung von Opencast nicht nur in Stud.IP sondern auch in Moodle und ILIAS sind seit über 15 Jahren Experten auf diesem Gebiet. Durch unsere Expertise und den andauernden Kontakt zu Nutzenden ist es uns möglich Lösungen zu entwickeln welche die Lehre von Morgen ermöglichen.</p>
-                </div>
-                <img class="keyvisual-image" src="assets/images/studip-keyvisual.svg" />
-            </div>
-        </section>
-        <section class="services">
-            <div class="container">
-                <div class="statement">
-                    <h3>Leistungen die wir anbieten</h3>
-                    <p>
-                        Hier finden Sie eine kleine Auswahl unserer Leistungen. Bei individuellen Ideen und Wünschen sprechen Sie uns gerne an.
-                    </p>
-                </div>
-            </div>
-            <div class="container service-container">
-                <div class="services">
-                    <div class="service">
-                        <img class="service-icon" src="assets/images/code.svg">
-                        <div class="service-text">
-                            <h4>Entwicklung</h4>
-                            <p>
-                                Erweiterung und Neuentwicklung von Funktionen im Stud.IP Kern sowie Erstellung und Pflege von Stud.IP-Plugins
-                            </p>
-                        </div>
-                    </div>
-                    <div class="service">
-                        <img class="service-icon" src="assets/images/group3.svg">
-                        <div class="service-text">
-                            <h4>Workshops</h4>
-                            <p>
-                                Raum schaffen um gemeinsam neue Ideen zu entwickeln und aus Ideen Konzepte zu entwerfen.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="service">
-                        <img class="service-icon" src="assets/images/service.svg">
-                        <div class="service-text">
-                            <h4>Opencast-Hosting und Integration in ihr LMS</h4>
-                            <p>
-                                Professionelles Hosting von Opencast und Anbindung in Stud.IP, ILIAS oder Moodle - alles aus einer Hand!
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        </div>
+    </section>
+</body>
 
-        <section class="services">
-            <div class="container">
-                <div class="statement">
-                    <h3>LMS Integrationen</h3>
-                    <p>
-                        Hier finden Sie eine Liste von LMS Plugins für Opencast an denen der ELAN e.V. maßgeblich mitentwickelt
-                    </p>
-                </div>
-            </div>
-            <div class="container service-container">
-                <div class="services">
-                    <div class="service">
-                        <img class="service-icon" src="assets/images/plugin2.svg">
-                        <div class="service-text">
-                            <h4>Stud.IP Opencast Plugin</h4>
-                            <p>
-                                Seit über 15 Jahren vom ELAN e.V., der Universität Osnabrück und vielen weiteren Institutionen geförderte und genutzte Opencast Integration für Stud.IP
-                                <br>
-                                <a target="_blank" href="https://github.com/elan-ev/studip-opencast-plugin">https://github.com/elan-ev/studip-opencast-plugin</a>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="service">
-                        <img class="service-icon" src="assets/images/plugin2.svg">
-                        <div class="service-text">
-                            <h4>Moodle Opencast Plugin</h4>
-                            <p>
-                                Moodle hat eine ganze Batterie von Opencast Integrationen:
-                                <br>
-                                <a target="_blank" href="https://github.com/Opencast-Moodle">https://github.com/Opencast-Moodle</a>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="service">
-                        <img class="service-icon" src="assets/images/plugin2.svg">
-                        <div class="service-text">
-                            <h4>ILIAS Opencast Plugin</h4>
-                            <p>
-                                Das Opencast Plugin für ILIAS wird gerade vom ELAN e.V. und weiteren runderneuert:
-                                <br>
-                                <a target="_blank" href="https://github.com/opencast-ilias">https://github.com/opencast-ilias</a>
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="service">
-                        <img class="service-icon" src="assets/images/admin.svg">
-                        <div class="service-text">
-                            <h4>Opencast PHP Library</h4>
-                            <p>
-                                Alle drei oben genannten Plugins nutzen diese vom ELAN e.V. entwickelte Bibliothek zur Kommunikation mit Opencast
-                                <br>
-                                <a target="_blank" href="https://github.com/elan-ev/opencast-php-library">https://github.com/elan-ev/opencast-php-library</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </body>
 </html>

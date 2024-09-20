@@ -1,58 +1,136 @@
 @font-face {
-    font-family: 'elanFont';
-    src: url('../fonts/gothamcondensedbookregular.otf');
+    font-family: 'Prompt';
+    src: url('../fonts/Prompt-Regular.ttf');
+    font-display: auto;
+    font-style: normal;
+    font-weight: 400;
+    text-rendering: optimizeLegibility;
+    unicode-range: U+000-5FF;
+}
+@font-face {
+    font-family: 'Prompt';
+    src: url('../fonts/Prompt-Italic.ttf');
+    font-display: auto;
+    font-style: italic;
+    font-weight: 400;
+    text-rendering: optimizeLegibility;
+    unicode-range: U+000-5FF;
+}
+@font-face {
+    font-family: 'Prompt';
+    src: url('../fonts/Prompt-Bold.ttf');
+    font-display: auto;
+    font-style: normal;
+    font-weight: 700;
+    text-rendering: optimizeLegibility;
+    unicode-range: U+000-5FF;
+}
+@font-face {
+    font-family: 'Prompt';
+    src: url('../fonts/Prompt-BoldItalic.ttf');
+    font-display: auto;
+    font-style: italic;
+    font-weight: 700;
+    text-rendering: optimizeLegibility;
+    unicode-range: U+000-5FF;
+}
+@font-face {
+    font-family: 'AlbertSans';
+    src: url('../fonts/AlbertSans-Regular.ttf');
+    font-display: auto;
+    font-style: normal;
+    font-weight: 400;
+    text-rendering: optimizeLegibility;
+    unicode-range: U+000-5FF;
+}
+@font-face {
+    font-family: 'AlbertSans';
+    src: url('../fonts/AlbertSans-Italic.ttf');
+    font-display: auto;
+    font-style: italic;
+    font-weight: 400;
+    text-rendering: optimizeLegibility;
+    unicode-range: U+000-5FF;
+}
+@font-face {
+    font-family: 'AlbertSans';
+    src: url('../fonts/AlbertSans-Bold.ttf');
+    font-display: auto;
+    font-style: normal;
+    font-weight: 700;
+    text-rendering: optimizeLegibility;
+    unicode-range: U+000-5FF;
+}
+@font-face {
+    font-family: 'AlbertSans';
+    src: url('../fonts/AlbertSans-Light.ttf');
+    font-display: auto;
+    font-style: normal;
+    font-weight: 100;
+    text-rendering: optimizeLegibility;
+    unicode-range: U+000-5FF;
 }
 
 body {
-    max-width: 2022px;
+    max-width: 1920px;
+    font-family: AlbertSans;
+}
+h1, h2, h3, h4 {
+    font-family: Prompt;
+    text-transform: uppercase;
 }
 h1 {
-    font-family: elanFont;
-    font-size: 50px;
+    font-size: 48px;
 }
 h2 {
-    font-family: elanFont;
-    font-size: 38px;
+    font-size: 32px;
 }
 h3 {
-    font-family: sans-serif;
     font-size: 16px;
     margin: 10px 0;
 }
 h4 {
-    font-family: sans-serif;
     font-size: 16px;
-    border-bottom: solid thin #28b8ce;
+    border-bottom: solid thin #1ED2D2;
     line-height: 30px;
     margin: 10px 0;
 }
 p {
-    font-family: sans-serif;
     font-size: 14px;
     line-height: 24px;
 }
 button {
-    background-color: #28b8ce;
+    min-width: 160px;
+    background-color: #1ED2D2;
     box-shadow: 0px 8px 9px 0px rgba(96, 94, 94, 0.17);
-    border: none;
-    border-radius: 4px;
-    color: #fff;
-    padding:14px 15px;
+    padding: 15px;
     cursor: pointer;
     letter-spacing: 1px;
     font-weight: 500;
     text-transform: uppercase;
-    transition: all 0.3s ease-in-out;
+    transition: background 0.3s ease-in-out;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    background: linear-gradient(to right, white, white), linear-gradient(to right, #1ED2D2, #8A2BE2);
+    background-origin: padding-box, padding-box;
+    background-clip: border-box, border-box;
+    background-clip: padding-box, border-box;
+    background-origin: padding-box, border-box;
 }
 button:hover {
-    transform: translateY(-2px);
+    background: linear-gradient(to right, #1ED2D2, #8A2BE2);
+    border-color: #fff;
+    color: #fff;
+}
+button.small {
+    padding: 5px 15px;
 }
 .top-header {
     margin-bottom: 2em;
 }
 .overlay {
     position: absolute;
-    background-color: #28b8ce;
+    background-color: #1ED2D2;
     transform: skewY(-10deg);
     height: 100%;
     max-height: 600px;
@@ -64,9 +142,10 @@ button:hover {
 }
 .container {
     display: flex;
+    gap: 10px;
     flex-direction: row;
     width: 960px;
-    margin: 0 auto 100px auto;
+    margin: 0 auto 150px auto;
 }
 .text-row {
     flex: 1 0 50%;
@@ -76,7 +155,7 @@ button:hover {
     padding: 25px;
     margin: 25px;
     background-color: #fff;
-    color: #28b8ce;
+    color: #1ED2D2;
     width: fit-content;
 }
 .icon-row {
@@ -88,7 +167,7 @@ button:hover {
 .icon-row img {
     height: 192px;
     width: 192px;
-    filter: brightness(0) saturate(100%) invert(73%) sepia(72%) saturate(1001%) hue-rotate(149deg) brightness(82%) contrast(96%);
+    filter: brightness(0) saturate(100%) invert(77%) sepia(87%) saturate(1190%) hue-rotate(120deg) brightness(91%) contrast(79%);
 }
 .box-container {
     justify-content: space-between;
@@ -103,12 +182,13 @@ button:hover {
     display: block;
     width: 92px;
     height: 92px;
-    margin: 40px auto 20px auto;
-    filter: brightness(0) saturate(100%) invert(73%) sepia(72%) saturate(1001%) hue-rotate(149deg) brightness(82%) contrast(96%);
+    margin: 40px auto 30px auto;
+    filter: brightness(0) saturate(100%) invert(77%) sepia(87%) saturate(1190%) hue-rotate(120deg) brightness(91%) contrast(79%);
 }
 .box h3 {
     padding: 0 30px;
     text-align: center;
+    min-height: 3em;
 }
 .box p {
     padding: 10px 30px;
@@ -123,6 +203,10 @@ button:hover {
     max-width: calc(50% - 2em);
     padding-left: 4em;
 }
+.keyvisual-text a {
+    float: right;
+    margin-top: 20px;
+}
 .keyvisual-text-left {
     flex: 1 0 50%;
     max-width: calc(50% - 2em);
@@ -130,7 +214,7 @@ button:hover {
 }
 .statement {
     width: 100%;
-    margin: 50px 0 -50px 0;
+    margin: 0px 0 -50px 0;
 }
 .statement h3 {
     font-size: 28px;
@@ -141,6 +225,7 @@ button:hover {
 }
 .service-container {
     justify-content: space-between;
+    margin: 0 auto 50px auto;
 }
 .services {
     display: flex;
@@ -152,17 +237,17 @@ button:hover {
     flex-direction: row;
     background-color: #fff;
     padding: 1em 2em;
-    min-height: 170px;
+    min-height: 240px;
     margin-bottom: 1em;
 }
 .service-icon {
     width: 48px;
     height: 48px;
     margin-right: 20px;
-    filter: brightness(0) saturate(100%) invert(73%) sepia(72%) saturate(1001%) hue-rotate(149deg) brightness(82%) contrast(96%);
+    filter: brightness(0) saturate(100%) invert(77%) sepia(87%) saturate(1190%) hue-rotate(120deg) brightness(91%) contrast(79%);
     border: solid thin #000;
-    margin: auto 30px auto 0;
-    border-radius: 50px;
+    margin: 60px 30px 0 0;
+    border-radius: 16px;
     padding: 18px;
 }
 .service-text {
@@ -172,4 +257,18 @@ button:hover {
     border: none;
     font-size: 18px;
 }
+.call-to-action {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+.logo {
+    position: relative;
+    height: 50px;
+}
 
+.logo a {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
